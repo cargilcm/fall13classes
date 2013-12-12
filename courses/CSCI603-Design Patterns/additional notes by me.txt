@@ -1,0 +1,3 @@
+singleton.ppt refers to lazyinstantiation (and joshi mentions inline instantiation of a singleton member/object)
+Javaworld provides information on this and how Java (v. C++) handles generic instantiations:
+http://www.javaworld.com/javatips/jw-javatip67.html?page=1

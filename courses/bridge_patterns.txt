@@ -1,0 +1,32 @@
+Abstracted Class:
+	CoinCounter(class which gets abstracted)
+	{
+		CurrencyImp imp=new CurrencyImplementor;
+		void denominate{
+			imp.denominate();
+		};
+		void calcTotal(){..}
+	}
+Implementors:	
+	CurrencyImplementor{}
+Concrete Implementors(2):
+	CurrencyA(){};
+	CurrencyB(){};
+
+
+Abstracted Class: Compensator	
+	{
+		Imp imp=new Implementor;
+		void getReward{
+			imp.getReward();
+		};
+		void addReward(){}; // increment the count of rewards earned
+	}
+	
+Implementors:	
+	Implementor{}
+
+Concrete Implementors(2):
+	RewardA(){};
+	ConcrB(){};
+

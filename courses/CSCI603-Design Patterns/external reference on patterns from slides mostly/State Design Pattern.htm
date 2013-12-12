@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="utf-8" />
+<link rel="canonical" href="http://sourcemaking.com/design_patterns/state" />
+<link rel="shortcut icon" href="http://sourcemaking.com/files/v2/favicon.png" />
+<meta name="keywords" content="state design pattern, state example, state pattern, state tutorial, state code" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="prev" href="/design_patterns/observer" />
+<link rel="up" href="/design_patterns/behavioral_patterns" />
+<link rel="next" href="/design_patterns/strategy" />
+<meta name="description" content="State design pattern. The State pattern allows an object to change its behavior when its internal state changes." />
+  <title>State Design Pattern</title>
+  <link rel="stylesheet" href="http://sourcemaking.com/files/v2/files/advagg_css/css__pGoHbUJjgmQqgSCMuRxIjoz9Wz2DGYpC1AfBOstQwCA__HjzlqdyNnDFqYBj47Yc0zL-j2oFj-OPUqgmZuutsLUA__3LR-nUzRB8U6w4js3hfM2_TMpu7g9q273oqa4fJnohE.css" media="all" />
+<link rel="stylesheet" href="http://sourcemaking.com/files/v2/files/advagg_css/css__9aQI5ppRAFDoXudkjHnHFHg--momB0ly12QYlgbTOIw__pX6aSG8xrtgfXeRrwMCKdz32DVDi-R9Wr0JC0Pp5noI__3LR-nUzRB8U6w4js3hfM2_TMpu7g9q273oqa4fJnohE.css" media="all" />
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="http://sourcemaking.com/sites/all/themes/sm7/styles/ie.css?mwxinu" media="all" />
+<![endif]-->
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/sites/all/themes/sm7/scripts/respond.js"></script>
+    <script type="text/javascript" src="/sites/all/themes/sm7/scripts/html5shiv.js"></script>
+  <![endif]-->
+
+  </head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-26 node-type-book" >
+<div id="skip-link">
+  <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+</div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div class="global-wrapper">
+  <header class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-inner">
+        <a class="navbar-brand" href="/">SourceMaking</a>
+
+        <div class="menu-primary">
+          <ul><li class="first expanded active-trail"><a href="/design_patterns" class="menu-patterns">Design Patterns</a><ul><li class="first leaf"><a href="/design_patterns">Design Patterns Reference</a></li>
+<li class="leaf"><a href="/design-patterns-and-tips">101 Design Patterns &amp; Tips</a></li>
+<li class="last leaf"><a href="/design-patterns-book" class="menu-star">Design Patterns Book</a></li>
+</ul></li>
+<li class="expanded"><a href="/antipatterns" class="menu-apatterns">AntiPatterns</a><ul><li class="first leaf"><a href="/antipatterns">Antipatterns Reference</a></li>
+<li class="leaf"><a href="/antipatterns2">40 Reasons Why Software Projects Die</a></li>
+<li class="last leaf"><a href="/antipatterns-book" class="menu-star">AntiPatterns Book</a></li>
+</ul></li>
+<li class="expanded"><a href="/refactoring" class="menu-refactoring">Refactoring</a><ul><li class="first last leaf"><a href="/refactoring">Refactoring Reference</a></li>
+</ul></li>
+<li class="last expanded"><a href="/uml" class="menu-uml">UML</a><ul><li class="first last leaf"><a href="/uml">UML Reference</a></li>
+</ul></li>
+</ul>        </div>
+        <div class="pull-right menu-secondary">
+          <a href="/user" class=" ">
+            <span class="fui-user"></span><span class="hidden-lg">My account</span>
+          </a>
+          <a href="/contact" >
+            <span class="fui-mail"></span><span class="hidden-lg">Contact us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+      </header>
+
+  <div class="post-header"></div>
+  <div class="pre-main"><div id="block-sm-ubercart-cart-cart" class="block block-sm-ubercart-cart">
+
+      
+  <div class="content">
+    <div class="cart-block-container"><script>
+    !function(){
+      if(typeof(Storage)!=="undefined") {
+        var block = localStorage.cartContents;
+        if (block) {
+          document.write(block);
+        }
+      }
+  }();
+  </script></div>  </div>
+</div>
+</div>
+
+  <div id="main-container" class="container">
+    <main id="main-content" class="content-main with-sidebar" role="main">
+
+      <nav role="navigation"><ul class="breadcrumb"><li class="first"><a href="/">Home</a></li>
+<li><a href="/design_patterns">Design Patterns</a></li>
+<li class="last"><a href="/design_patterns/behavioral_patterns">Behavioral patterns</a></li>
+</ul></nav>
+
+      
+                    
+                      
+
+  <article class="node node-book clearfix">
+
+    
+              <h1>State Design Pattern</h1>
+          <script type="text/javascript">
+        // Shorten examples titles for users.
+        var h1 = document.getElementsByTagName("H1")[0];
+        var title = h1.innerHTML;
+        title = title.replace(/^(.*) Design Pattern in (.*)$/, '<strong>$1</strong> in <em>$2</em>');
+        title = title.replace(/^(.*) Design Pattern$/, '<strong>$1</strong> Design Pattern');
+        h1.innerHTML = title;
+      </script>
+            
+    
+    <div class="content">
+        <h3>Intent</h3>
+
+<ul>
+<li>Allow an object to alter its behavior when its internal state changes.
+The object will appear to change its class.</li>
+<li>An object-oriented state machine</li>
+<li>wrapper + polymorphic wrappee + collaboration</li>
+</ul>
+
+
+<h3>Problem</h3>
+
+<p>A monolithic object's behavior is a function of its state, and it must
+change its behavior at run-time depending on that state.  Or, an
+application is characterixed by large and numerous case statements that
+vector flow of control based on the state of the application.</p>
+
+
+<h3>Discussion</h3>
+
+<p>The State pattern is a solution to the problem of how to make behavior depend
+on state.</p>
+
+<ul>
+<li>Define a "context" class to present a single interface to the outside
+world.</li>
+<li>Define a State abstract base class.</li>
+<li>Represent the different "states" of the state machine as derived
+classes of the State base class.</li>
+<li>Define state-specific behavior in the appropriate State derived classes.</li>
+<li>Maintain a pointer to the current "state" in the "context" class.</li>
+<li>To change the state of the state machine, change the current "state"
+pointer.</li>
+</ul>
+
+<p>The State pattern does not specify where the state transitions will be
+defined.  The choices are two: the "context" object, or each individual
+State derived class.  The advantage of the latter option is ease of
+adding new State derived classes.  The disadvantage is each State
+derived class has knowledge of (coupling to) its siblings, which
+introduces dependencies between subclasses.</p>
+
+<p>A table-driven approach to designing finite state machines does a good
+job of specifying state transitions, but it is difficult to add actions
+to accompany the state transitions.  The pattern-based approach uses
+code (instead of data structures) to specify state transitions, but it
+does a good job of accomodating state transition actions.</p>
+
+
+<h3>Structure</h3>
+
+<p>The state machine's interface is encapsulated in the "wrapper" class.
+The wrappee hierarchy's interface mirrors the wrapper's interface with
+the exception of one additional parameter.  The extra parameter allows
+wrappee derived classes to call back to the wrapper class as necessary.
+Complexity that would otherwise drag down the wrapper class is neatly
+compartmented and encapsulated in a polymorphic hierarchy to which the
+wrapper object delegates.</p>
+
+<div class="center">
+<img src="/files/sm/images/patterns/State1.gif" alt="State scheme"/>
+</div>
+
+<h3>Example</h3>
+
+<p>The State pattern allows an object to change its behavior when its
+internal state changes.  This pattern can be observed in a vending
+machine.  Vending machines have states based on the inventory, amount of
+currency deposited, the ability to make change, the item selected, etc.
+When currency is deposited and a selection is made, a vending machine
+will either deliver a product and no change, deliver a product and
+change, deliver no product due to insufficient currency on deposit, or
+deliver no product due to inventory depletion. </p>
+
+<div class="center">
+<img src="/files/sm/images/patterns/State_example1.gif" alt="State example"/>
+</div>
+
+<h3>Check list</h3>
+
+<ol>
+<li>Identify an existing class, or create a new class, that will
+serve as the "state machine" from the client's perspective.
+That class is the "wrapper" class.</li>
+<li>Create a State base class that replicates the methods of the
+state machine interface.  Each method takes one additional parameter:
+an instance of the wrapper class.  The State base class specifies any
+useful "default" behavior.</li>
+<li>Create a State derived class for each domain state.  These
+derived classes only override the methods they need to override.</li>
+<li>The wrapper class maintains a "current" State object.</li>
+<li>All client requests to the wrapper class are simply delegated
+to the current State object, and the wrapper object's
+<code>this</code> pointer is passed.</li>
+<li>The State methods change the "current" state in the wrapper
+object as appropriate.</li>
+</ol>
+
+
+<h3>Rules of thumb</h3>
+
+<ul>
+<li>State objects are often Singletons.</li>
+<li>Flyweight explains when and how State objects can be shared.</li>
+<li>Interpreter can use State to define parsing contexts.</li>
+<li>Strategy has 2 different implementations, the first is similar to
+State.  The difference is in binding times (Strategy is a bind-once
+pattern, whereas State is more dynamic).</li>
+<li>The structure of State and Bridge are identical (except that Bridge
+admits hierarchies of envelope classes, whereas State allows only
+one).  The two patterns use the same structure to solve different
+problems: State allows an object's behavior to change along with its
+state, while Bridge's intent is to decouple an abstraction from its
+implementation so that the two can vary independently.</li>
+<li>The implementation of the State pattern builds on the Strategy
+pattern.  The difference between State and Strategy is in the
+intent.  With Strategy, the choice of algorithm is fairly stable.
+With State, a change in the state of the "context" object causes
+it to select from its "palette" of Strategy objects.</li>
+</ul>
+
+<!-- examples --><section class="supplementary">
+  <h3>Read next</h3>
+<div class="banner">
+  <div class="line-guide"><div class="line-guide-helper"></div></div>
+  <div class="image">
+    <a href="/design-patterns-simply"><img src="/files/v2/landings/DesignPatterns-cover.png" alt="AntiPatterns: The Survival Guide"/></a>
+  </div>
+
+  <div class="caption">
+    <p>This article is taken from our book <a href="/design-patterns-simply"><b>Design Patterns Explained Simply</b></a>.
+    </p>
+
+    <p>
+      <b>ALL design patterns are compiled there.</b> The book is written in a clear and simple language that makes it easy to read and understand (just like this article).
+    </p>
+
+    <p>We distribute it in PDF &amp; EPUB formats, so you can get it to your iPad, Kindle or other portable device right after purchase.</p>
+
+    <p>
+      <a href="/design-patterns-simply" class="btn btn-hg btn-danger"><i class="fui-heart"></i> Learn more</a>
+    </p>
+  </div>
+  <div class="clearfix"></div>
+</div></section>
+</h3>
+<section class="examples">
+  <h3>Code examples</h3>
+  <div class="table-responsive"><table class="table table-bordered table-no-striping table">
+<tbody>
+ <tr class="odd"><td>Java</td><td><a href="/design_patterns/state/java/1">State in Java: Before and after</a></td><td><a href="/design_patterns/state/java/2">State in Java: Case statement considered harmful</a></td><td><a href="/design_patterns/state/java/3">State in Java</a></td><td><a href="/design_patterns/state/java/4">State in Java</a></td><td><a href="/design_patterns/state/java/5">State in Java</a></td><td><a href="/design_patterns/state/java/6">State in Java: Distributed transition logic</a></td><td><a href="/design_patterns/state/java/7">State in Java</a></td> </tr>
+ <tr class="even"><td>C#</td><td><a href="/design_patterns/state/c-sharp-dot-net">State in C#</a></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+ <tr class="odd"><td>C++</td><td><a href="/design_patterns/state/cpp/1">State in C++</a></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+ <tr class="even"><td>PHP</td><td><a href="/design_patterns/state/php">State in PHP</a></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+ <tr class="odd"><td>Delphi</td><td><a href="/design_patterns/state/delphi">State in Delphi</a></td><td><a href="/design_patterns/state/delphi/1">State in Delphi</a></td><td></td><td></td><td></td><td></td><td></td> </tr>
+</tbody>
+</table>
+</div></h3>
+</section>
+</h3>
+  <nav role="navigation" aria-label="Book navigation" id="book-navigation-2" class="book-navigation">
+        <ul class="nav nav-pills">
+              <li class="previous">
+          <a href="/design_patterns/observer" class="link page-previous" title="Go to previous page">
+            <i class="fui-arrow-left pull-left"></i>
+            Observer          </a>
+        </li>
+                    <li>
+          <a href="/design_patterns/behavioral_patterns" class="link page-up" title="Go to parent page">
+            <i class="fui-triangle-up pull-left"></i>
+            Behavioral patterns          </a>
+        </li>
+                        <li class="next">
+        <a href="/design_patterns/strategy" class="link page-next" title="Go to next page">
+          <i class="fui-arrow-right pull-right"></i>
+          Strategy        </a>
+      </li>
+          </ul>
+      </nav>
+<script type="text/javascript">
+  !function () {
+    function getElementsByClassName(node, classname) {
+      if (node.getElementsByClassName)
+        return node.getElementsByClassName(classname);
+      else {
+        var a = [];
+        var re = new RegExp('(^| )'+ classname +'( |$)');
+        var els = node.getElementsByTagName("*");
+        for(var i=0,j=els.length; i<j; i++) {
+          if(re.test(els[i].className)) {
+            a.push(els[i]);
+          }
+        }
+        return a;
+      }
+    }
+
+    var book_nav = getElementsByClassName(document.body, 'book-navigation')[0];
+    var items = getElementsByClassName(book_nav, 'link');
+    var max_height = 0;
+    for (var i = 0; i < items.length; i++) {
+      max_height = items[i].clientHeight > max_height ? items[i].clientHeight : max_height;
+    }
+    for (var i = 0; i < items.length; i++) {
+      items[i].style.height = max_height + 'px';
+    }
+  }()
+</script>
+    </div>
+
+    
+    
+  </article>
+        <div class="after-content"><div id="block-sm-banners-license" class="block block-sm-banners">
+
+      
+  <div class="content">
+    <table class="copyfooter">
+  <tr>
+    <td class="footerimg">
+      <a class="non" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" style="border-width:0" src="/files/v2/cc88x31.png"/></a>
+    </td>
+    <td class="footertext">
+      This work is licensed under a
+      <a class="non" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 Unported License</a>
+    </td>
+  </tr>
+</table>  </div>
+</div>
+</div>
+            </main>
+
+          <aside class="content-secondary" role="complimentary">
+        <div id="block-book-navigation-book-navigation" class="block block-book-navigation">
+  <div class="container">
+              <h3 class="block-title"><a href="/design_patterns" class="book-title">Design Patterns</a></h3>
+        
+    <div class="content">
+      <ul><li class="first expanded"><a href="/design_patterns/creational_patterns">Creational patterns</a><ul><li class="first leaf"><a href="/design_patterns/abstract_factory">Abstract Factory</a></li>
+<li class="leaf"><a href="/design_patterns/builder">Builder</a></li>
+<li class="leaf"><a href="/design_patterns/factory_method">Factory Method</a></li>
+<li class="leaf"><a href="/design_patterns/object_pool">Object Pool</a></li>
+<li class="leaf"><a href="/design_patterns/prototype">Prototype</a></li>
+<li class="last leaf"><a href="/design_patterns/singleton">Singleton</a></li>
+</ul></li>
+<li class="expanded"><a href="/design_patterns/structural_patterns">Structural patterns</a><ul><li class="first leaf"><a href="/design_patterns/adapter">Adapter</a></li>
+<li class="leaf"><a href="/design_patterns/bridge">Bridge</a></li>
+<li class="leaf"><a href="/design_patterns/composite">Composite</a></li>
+<li class="leaf"><a href="/design_patterns/decorator">Decorator</a></li>
+<li class="leaf"><a href="/design_patterns/facade">Facade</a></li>
+<li class="leaf"><a href="/design_patterns/flyweight">Flyweight</a></li>
+<li class="leaf"><a href="/design_patterns/private_class_data">Private Class Data</a></li>
+<li class="last leaf"><a href="/design_patterns/proxy">Proxy</a></li>
+</ul></li>
+<li class="last expanded active-trail"><a href="/design_patterns/behavioral_patterns" class="active-trail">Behavioral patterns</a><ul><li class="first leaf"><a href="/design_patterns/chain_of_responsibility">Chain of Responsibility</a></li>
+<li class="leaf"><a href="/design_patterns/command">Command</a></li>
+<li class="leaf"><a href="/design_patterns/interpreter">Interpreter</a></li>
+<li class="leaf"><a href="/design_patterns/iterator">Iterator</a></li>
+<li class="leaf"><a href="/design_patterns/mediator">Mediator</a></li>
+<li class="leaf"><a href="/design_patterns/memento">Memento</a></li>
+<li class="leaf"><a href="/design_patterns/null_object">Null Object</a></li>
+<li class="leaf"><a href="/design_patterns/observer">Observer</a></li>
+<li class="leaf active-trail"><a href="/design_patterns/state" class="active-trail active">State</a></li>
+<li class="leaf"><a href="/design_patterns/strategy">Strategy</a></li>
+<li class="leaf"><a href="/design_patterns/template_method">Template Method</a></li>
+<li class="last leaf"><a href="/design_patterns/visitor">Visitor</a></li>
+</ul></li>
+</ul>    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    function getElementsByClassName(node, classname) {
+      if (node.getElementsByClassName) {
+        return node.getElementsByClassName(classname);
+      }
+      else {
+        var a = [];
+        var re = new RegExp('(^| )' + classname + '( |$)');
+        var els = node.getElementsByTagName("*");
+        for (var i = 0, j = els.length; i < j; i++) {
+          if (re.test(els[i].className)) {
+            a.push(els[i]);
+          }
+        }
+        return a;
+      }
+    }
+
+    /**
+     * Move book block near the header (mobile version).
+     */
+    var onresize = function (event) {
+      var book_block;
+      var body = document.getElementById('main-container').parentNode;
+
+      var window_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      if (window_width < 768) {
+        if (!body.getAttribute('data-index_moved') || body.getAttribute('data-index_moved') == 0) {
+          var main_container = document.getElementById('main-container');
+          book_block = getElementsByClassName(document.body, 'block-book-navigation')[0];
+
+          body.insertBefore(book_block, main_container);
+          body.setAttribute('data-index_moved', 1);
+        }
+      }
+      else {
+        if (body.getAttribute('data-index_moved')) {
+          var secondary = getElementsByClassName(document.body, 'content-secondary')[0];
+          book_block = getElementsByClassName(document.body, 'block-book-navigation')[0];
+
+          if (secondary.hasChildNodes()) {
+            secondary.insertBefore(book_block, secondary.childNodes[0]);
+          }
+          else {
+            secondary.appendChild(book_block);
+          }
+
+          body.setAttribute('data-index_moved', 0);
+        }
+      }
+    }
+    if (window.addEventListener) {
+      window.addEventListener("resize", onresize, false);
+    }
+    else {
+      if (window.attachEvent) {
+        window.attachEvent("onresize", onresize);
+      }
+    }
+    onresize({});
+
+    /**
+     * Expand index on clicking it's title (mobile version).
+     */
+    var block = getElementsByClassName(document.body, 'block-book-navigation')[0];
+    var h3 = block.getElementsByTagName('h3')[0];
+    h3.onclick = function (e) {
+      var window_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      var content = getElementsByClassName(this.parentNode, 'content')[0];
+      var pattern = / expanded/g;
+      if (pattern.test(content.className)) {
+        content.className = content.className.replace(pattern, "");
+      }
+      else {
+        content.className = content.className + " expanded";
+      }
+      if (window_width <= 992) {
+
+        if (!e) {
+          var e = window.event;
+        }
+
+        //e.cancelBubble is supported by IE -
+        // this will kill the bubbling process.
+        e.cancelBubble = true;
+        e.returnValue = false;
+
+        //e.stopPropagation works only in Firefox.
+        if (e.stopPropagation) {
+          e.stopPropagation();
+        }
+        if (e.preventDefault) {
+          e.preventDefault();
+        }
+
+        return false;
+      }
+    }
+
+    /**
+     * Expand sub-titles (all versions).
+     */
+    var links = getElementsByClassName(block, 'expanded');
+    for (var i = 0; i < links.length; i++) {
+      // Fold all non-active-trail links.
+      if (!/active\-trail/.test(links[i].className)) {
+        links[i].className = links[i].className + " folded";
+      }
+      links[i].className = links[i].className + " animated";
+
+      // Add section titles into link lists as first list item (in order to give user ability to navigate them).
+      var link = links[i].getElementsByTagName('a')[0];
+      var ul = links[i].getElementsByTagName('ul')[0];
+      var li = document.createElement('li');
+      li.appendChild(link.cloneNode(true));
+      ul.insertBefore(li, ul.firstChild);
+
+      // Fold/expand section on click.
+      link.onclick = function (e) {
+        var link = this;
+        var parent = link.parentNode;
+        var pattern = / folded/g;
+
+        if (pattern.test(parent.className)) {
+          parent.className = parent.className.replace(pattern, "");
+        }
+        else {
+          parent.className = parent.className + " folded";
+        }
+
+
+        if (!e) {
+          var e = window.event;
+        }
+        //e.cancelBubble is supported by IE -
+        // this will kill the bubbling process.
+        e.cancelBubble = true;
+        e.returnValue = false;
+
+        //e.stopPropagation works only in Firefox.
+        if (e.stopPropagation) {
+          e.stopPropagation();
+        }
+        if (e.preventDefault) {
+          e.preventDefault();
+        }
+        return false;
+      }
+    }
+  }()
+</script>
+<div id="block-sm-banners-dp-sidebar" class="block block-sm-banners">
+
+      
+  <div class="content">
+    <div style="padding: 0 20px">
+  <a class="btn btn-lg btn-primary mtl" href="/design-patterns-book"><i class="fui-book"></i> Design Patterns Book</a>
+</div>  </div>
+</div>
+      </aside>
+    
+  </div>
+  <!--end container-->
+</div>
+
+<div class="post-main">
+  </div>
+
+<footer>
+    <div class="bottom-menu">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-xs-6 bottom-links">
+          <ul><li class="first expanded"><a href="/design_patterns" class="menu-patterns">Design Patterns</a></li>
+<li class="expanded"><a href="/antipatterns" class="menu-apatterns">AntiPatterns</a></li>
+<li class="expanded"><a href="/refactoring" class="menu-refactoring">Refactoring</a></li>
+<li class="last expanded"><a href="/uml" class="menu-uml">UML</a></li>
+</ul>        </div>
+
+        <div class="col-sm-3 col-xs-6">
+          <ul class="bottom-links bottom-links-right">
+            <li><a href="/user">My account</a></li>
+            <li><a href="/contact">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="post-footer">
+  <div id="block-sm-banners-social" class="block block-sm-banners">
+
+      
+  <div class="content">
+    <div class="social-links">
+  <div class="container">
+    <div class="social-link google">
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium" data-href="http://sourcemaking.com" expandTo="top"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/plusone.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+    </div>
+
+    <div class="social-link twitter">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://sourcemaking.com" data-text="Huge list of Design Patterns, Antipatterns and Refactorings" data-via="sourcemaking">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+
+    <div class="social-link facebook">
+      <div class="fb-like" data-href="http://sourcemaking.com" data-layout="button_count" data-action="recommend" data-show-faces="true" data-share="false"></div>
+    </div>
+
+
+  </div>
+</div>  </div>
+</div>
+</div>
+
+<script src="http://sourcemaking.com/files/v2/files/advagg_js/js__4URjo-MPoVBrJRlYJy4a8Az_GN-oiGxImq0oOG3ufq8__4I3BYrOF_enwqKMI6A0xaKid6TLT99Zew7I53t2NLhA__3LR-nUzRB8U6w4js3hfM2_TMpu7g9q273oqa4fJnohE.js"></script>
+<script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-521840-6"]);_gaq.push(["_trackPageview"]);(function(){var ga=document.createElement("script");ga.type="text/javascript";ga.async=true;ga.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga,s)})()</script>
+<script src="http://sourcemaking.com/files/v2/files/advagg_js/js__d3zk0DUpYJwHjW0Ct1qyDomriqWI-Zp6orlGFmC0p14__jGHx1iAS4PxrTlHw1YpU02ZqpUoP49tF99IMisFAuFA__3LR-nUzRB8U6w4js3hfM2_TMpu7g9q273oqa4fJnohE.js"></script>
+<script>jQuery.extend(Drupal.settings,{basePath:"\u002F",pathPrefix:"",ajaxPageState:{theme:"sm7",theme_token:"tcmGXRPIzgrJ3J6jWPbDVrYPtEBgJITYq9MBUX_OwXw",css:{"modules\u002Fsystem\u002Fsystem.base.css":1,"modules\u002Ffield\u002Ftheme\u002Ffield.css":1,"sites\u002Fall\u002Fmodules\u002Fcontrib\u002Flogintoboggan\u002Flogintoboggan.css":1,"sites\u002Fall\u002Fmodules\u002Fcontrib\u002Fubercart\u002Fuc_file\u002Fuc_file.css":1,"sites\u002Fall\u002Fmodules\u002Fcontrib\u002Fubercart\u002Fuc_order\u002Fuc_order.css":1,"sites\u002Fall\u002Fmodules\u002Fcontrib\u002Fubercart\u002Fuc_product\u002Fuc_product.css":1,"sites\u002Fall\u002Fmodules\u002Fcontrib\u002Fubercart\u002Fuc_store\u002Fuc_store.css":1,"sites\u002Fall\u002Fmodules\u002Fcontrib\u002Fviews\u002Fcss\u002Fviews.css":1,"sites\u002Fall\u002Fmodules\u002Fcontrib\u002Fctools\u002Fcss\u002Fctools.css":1,"sites\u002Fall\u002Fthemes\u002Fsm7\u002Fstyles\u002Fstyles.css":1,"sites\u002Fall\u002Fthemes\u002Fsm7\u002Fstyles\u002Fcodemirror.css":1,"sites\u002Fall\u002Fthemes\u002Fsm7\u002Fstyles\u002Fie.css":1}}})</script>
+</body>
+</html>
+
+<!-- Page cached by Boost @ 2013-11-29 17:27:09, expires @ 2014-11-28 17:27:09, lifetime 12 months 4 days -->

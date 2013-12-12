@@ -1,0 +1,139 @@
+
+CSCI 220
+Computer Programming I (3) PR: CSCI 120 or CSCI 180 or CSCI 210 or MATH 111 CO: CSCI 220L
+CSCI 220L
+Computer Programming I Lab (1) CO: CSCI 220
+CSCI 221
+Computer Programming II (3) PR: CSCI 220, CSCI 220L; CO or PR: MATH 207
+CSCI 230
+Data Structure and Algorithms (3) PR: CSCI 221, MATH 207
+CSCI 250
+Introduction to Computer Organization and Assembly Language Programming (3) PR: CSCI 220 and CSCI 220L; CO or PR: MATH 207
+CSCI 320
+Programming Language Concepts (3) PR: CSCI 221, MATH 207
+CSCI 340
+Operating Systems (3) PR: CSCI, 230, CSCI 250, MATH 207
+CSCI 350
+Digital Logic and Computer Organization (3) PR: CSCI 250; PR or CO: MATH 307
+CSCI 360
+Software Architecture and Design (3) PR: CSCI 230, MATH 207: CO: COMM 104
+CSCI 362
+Software Engineering (3) PR: CSCI 221, MATH 207; CO: COMM 104
+CSCI 392
+Seminar on Computing and Society (3) PR: CSCI 221
+CSCI 462
+Software Engineering Practicum (3) PR: CSCI 230, CSCI 360 or CSCI 362; COMM 104
+
+****Elective Requirements: 9 credit hours from the following:
+CSCI 310
+Advanced Algorithms (3) PR: CSCI 230, MATH 207
+CSCI 315
+Service-Side Web Programming (3) PR: CSCI 215, CSCI 221
+CSCI 325
+Functional and Logic Programming (3) PR: CSCI 221, MATH 207
+CSCI 332
+Database Concepts (3) PR: CSCI 221, MATH 207
+CSCI 334
+Data Mining (3) PR: CSCI 221, MATH 207, MATH 250
+CSCI 380
+User Interface Development (3) PR: CSCI 221, MATH 207, or instructor permission
+CSCI 397
+Research Experience in Computer Science (0) PR: Declared CSCI Majors only, instructor permission, department chair permission
+CSCI 399
+Tutorial (3, Repeatable up to 12) PR: Junior standing, tutor permission, department chair permission
+CSCI 410
+Automata and Formal Language (3) PR: MATH 207
+CSCI 420
+Principles of Compiler Design (3) PR: CSCI 230, CSCI 320, MATH 307
+CSCI 432
+Concepts of Database Implementation (3) PR: CSCI 332, MATH 307
+CSCI 440
+Computer Networks (3) PR: CSCI 340, MATH 250, MATH 307
+CSCI 450
+Architecture of Advanced Computer Systems (3) PR: CSCI 340 or CSCI 350
+CSCI 459
+Service-Oriented Programming (3) PR: CSCI 221; CSCI 230 or CSCI 315
+CSCI 470
+Principles of Artificial Intelligence (3) PR: CSCI 230, MATH 307
+CSCI 480
+Principles of Computer Graphics (3) PR: CSCI 230, MATH 220, MATH 307
+CSCI 490
+Special Topics (3) PR: Instructor permission
+CSCI 499
+Bachelor's Essay (6) PR: A project proposal must be submitted in writing and approved by the department prior to registration for the course.
+****Math Requirement
+MATH 120
+Introductory Calculus (4) PR: C- or better in MATH 111 or placement
+MATH 207
+Discrete Structures I (3) PR: MATH 105, MATH 111, or MATH 120
+MATH 250
+Statistical Methods (3) PR: MATH 111 or MATH 120 or instructor permission
+MATH 307
+Discrete Structures II (3) PR: MATH 207 or MATH 295 or instructor permission
+Select one additional math course from the following:
+MATH 220
+Calculus II (4) PR: MATH 120 or HONS 115
+MATH 203
+Linear Algebra (3) PR: MATH 220 or instructor permission
+MATH 245
+Numerical Methods and Mathematical Computation (3) PR: MATH 203, MATH 220, instructor permission; CO: MATH 246
+MATH 350
+Statistical Methods II (3) PR: MATH 120, MATH 250
+MATH 440
+Statistical Learning I (3) PR: MATH 203, MATH 220, MATH 350
+*****Communication Requirement
+COMM 104
+Public Speaking (3) PR: None
+*****Science Requirement: Select 14 credit hours from the following:
+BIOL 111
+Introduction to Cell and Molecular Biology (3) PR: None; CO: BIOL 111L
+BIOL 111L
+Introduction to Cell and Molecular Biology Lab (1) CO: BIOL 111
+ 
+ 
+BIOL 112
+Evolution, Form, and Function of Organisms (3) PR: BIOL 111 and 111L; CO: BIOL 112L
+BIOL 112L
+Evolution, Form, and Function of Organisms Lab (1) CO: BIOL 112L
+ 
+ 
+CHEM 111
+Principles of Chemistry (3) PR or CO: unless students exempt MATH 111 (via diagnostic testing) or have completed this course as a pre-requisite, they are required to take MATH 111 as a co-requisite; CO: CHEM 111L
+CHEM 111L
+Principles of Chemistry Lab (1) CO: CHEM 111
+ 
+ 
+CHEM 112
+Principles of Chemistry (3) PR: CHEM 111 and 111L or HONS 153 and 153L; CO: CHEM 112L (MATH 120 strongly recommended)
+CHEM 112L
+Principles of Chemistry Lab (1) CO: CHEM 112
+ 
+ 
+GEOL 101
+Dynamic Earth (3) PR: None; CO: GEOL 101L
+GEOL 101L
+Dynamic Earth Lab (1) CO: GEOL 101
+ 
+ 
+GEOL 103
+Environmental Geology (3) PR: None; CO: GEOL 103L
+GEOL 103L
+Environmental Geology Lab (1) CO: GEOL 103
+ 
+ 
+GEOL 105
+Earth History (3) PR: GEOL 101 and 101L or GEOL 103 and 103L; CO: GEOL 105L
+GEOL 105L
+Earth History Lab (1) CO: GEOL 105
+ 
+ 
+PHYS 111
+General Physics I (3) PR or CO: MATH 120 or equivalent or instructor permission; CO: PHYS 111L
+PHYS 111L
+General Physics I Lab (1) CO: PHYS 111L or instructor permission
+ 
+ 
+PHYS 112
+General Physics II (3) PR: PHYS 111 and 111L or HONS 157 and 157L; PR or CO: MATH 220 or equivalent or instructor permission; CO: PHYS 112L
+PHYS 112L
+General Physics II Lab (1) CO: PHYS 112 or instructor permission

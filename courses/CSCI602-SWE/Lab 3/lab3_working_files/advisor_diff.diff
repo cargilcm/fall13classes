@@ -1,0 +1,4 @@
+248c248
+< 		new SchoolAdapter[] {new NCSU(), new UNC(), new DefaultSchoolAdapter()};
+---
+> 		new SchoolAdapter[] {new CofC(),  new NCSU(), new UNC(), new DefaultSchoolAdapter()};

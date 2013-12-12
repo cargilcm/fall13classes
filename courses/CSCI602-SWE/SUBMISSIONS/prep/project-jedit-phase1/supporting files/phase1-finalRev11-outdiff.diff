@@ -1,0 +1,109 @@
+diff -r jEdit_initialcommit/bin/org/gjt/sp/jedit/actions.xml changeset11/bin/org/gjt/sp/jedit/actions.xml
+324a325,330
+> <ACTION NAME="find-and-mark-all" NO_RECORD="TRUE">
+> 	<CODE>
+> 		SearchDialog.markAll(view);
+> 	</CODE>
+> </ACTION>
+> 
+diff -r jEdit_initialcommit/bin/org/gjt/sp/jedit/jedit_gui.props changeset11/bin/org/gjt/sp/jedit/jedit_gui.props
+371a372
+>        find-and-mark-all \
+390a392
+> find-and-mark-all.label=mark all
+Binary files jEdit_initialcommit/bin/org/gjt/sp/jedit/search/SearchAndReplace.class and changeset11/bin/org/gjt/sp/jedit/search/SearchAndReplace.class differ
+diff -r jEdit_initialcommit/org/gjt/sp/jedit/actions.xml changeset11/org/gjt/sp/jedit/actions.xml
+324a325,330
+> <ACTION NAME="find-and-mark-all" NO_RECORD="TRUE">
+> 	<CODE>
+> 		SearchDialog.markAll(view);
+> 	</CODE>
+> </ACTION>
+> 
+diff -r jEdit_initialcommit/org/gjt/sp/jedit/jedit_gui.props changeset11/org/gjt/sp/jedit/jedit_gui.props
+371a372
+>        find-and-mark-all \
+390a392
+> find-and-mark-all.label=mark all
+diff -r jEdit_initialcommit/org/gjt/sp/jedit/search/SearchAndReplace.java changeset11/org/gjt/sp/jedit/search/SearchAndReplace.java
+37a38
+> import java.util.ArrayList;
+417a419,494
+> 	
+> 	/**
+> 	 * place a marker at each line where the highlighted search
+> 	 * pattern exists in the current buffer. 
+> 	 */
+> 	public static void markAll(View view){
+> 		try{
+> 			int[] matches = findAll(view);
+> 			int i=0;
+> 			if(matches.length>=1){
+> 				for(int integer:matches){
+> 					view.getTextArea().setCaretPosition(
+> 							view.getTextArea().getLineStartOffset(integer)
+> 						);
+> 					view.getEditPane().addMarker();	
+> 				}
+> 			}
+> 		}
+> 		catch(Exception e){
+> 			System.err.println("exception in find_and_mark caused by "+e+".\n"
+> 					+ "You must have selected some text to begin with..");
+> 		}
+> 	}
+> 	
+> 	public static int[] findAll(View view) throws Exception 
+> 	{
+> 		String text = view.getTextArea().getSelectedText();
+> 		if(text==null)
+> 			throw new Exception("SearchAndReplace.findAll(view)");
+> 		caretStart = 0;
+> 		int fileIndex = 0;
+> 		SearchFileSet fileset;
+> 		String[] files = null;
+> 		JEditTextArea textArea = view.getTextArea();
+> 		ArrayList<Integer> hits = new ArrayList<Integer>();
+> 		int i=0;
+> 		
+> 		try{
+> 			fileset = SearchAndReplace.getSearchFileSet();
+> 			files = fileset.getFiles(view);
+> 			if(files[0]!=null){
+> 				Buffer b = jEdit.openTemporary(null,null,files[fileIndex],false);
+> 				if(b != null){
+> 					String s = b.getText(0, b.getLength()); 
+> 					if(text!=null){
+> 						if(s.contains(text)){ //current active buffer
+> 							//contains match to the selected text somewhere
+> 							for(i=0;i<b.getLineCount();i++){
+> 								String line=b.getLineText(i);
+> 								if(line.contains(text)){
+> 									hits.add(new Integer(i));
+> 									// can call p0rintln(i) here to see lines
+> 									// where searchMatches are found
+> 								}
+> 								
+> 							}
+> 							int[] searchMatches = new int[hits.size()];
+> 							i=0;
+> 							for(Integer bigInt:hits){
+> 								searchMatches[i++]=(int)bigInt;
+> 							}
+> 							return searchMatches;
+> 						}
+> 					} // text!=null is false, therefore:
+> 						else{
+> 							throw new Exception("SearchAndReplace.findAll(View)");
+> 						}
+> 					}
+> 			}		
+> 		} catch (Exception e) {
+> 			
+> 		}
+> 		return null;
+> 	}
+> 	
+> 	
+1011a1089
+> 	private static int caretStart;

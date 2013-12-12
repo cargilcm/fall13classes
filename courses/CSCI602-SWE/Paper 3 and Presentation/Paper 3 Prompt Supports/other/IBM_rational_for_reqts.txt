@@ -1,0 +1,25 @@
+from:
+http://pic.dhe.ibm.com/infocenter/reqpro/v7r1m0/index.jsp?topic=/com.ibm.reqpro.help/integ/c_req_metrics.html
+
+IBM Rational Requisite Pro is used for document gathered requirements as from MS Word tabls for e.g. as:
+
+Creating requirements from tables
+
+You can create a requirement from the text in a Microsoft Word table. You can also create one or more requirements from text in multiple cells in the table by converting the table to text in Microsoft Word, creating the requirements, and then converting the text (including the requirement) back to a table.
+About this task
+To create a requirement from the text in a Microsoft Word table:
+Select the cells and rows that contain the text from which you want to create a requirement:
+Select one or more adjacent cells within a row.
+Select one or more adjacent rows.
+Select the entire table.
+Click Rational RequisitePro > Requirement > New.
+ Complete the requirement information in the Requirement Properties window and click OK.
+To convert the text (including the requirement) back to a table:
+
+Procedure
+In the document, select the table to modify.
+In Microsoft Word, click Table > Convert > Table To Text.
+Click Rational RequisitePro > Requirement > New Wizard.
+Use the New Requirements wizard to create requirements from the selected range of text.
+Select the newly created requirements.
+In Microsoft Word, click Table > Convert > Table To Text.

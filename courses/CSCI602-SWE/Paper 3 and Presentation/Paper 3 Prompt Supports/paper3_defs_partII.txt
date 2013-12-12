@@ -1,0 +1,19 @@
+CSCI602 Paper 3,DefinitionsPtII:
+
+
+Static Code Analysis(SCA):
+Static code analysis (SCA) is the analysis of computer programs that is performed without actually executing the programs, usually by using an automated tool. 
+http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6200135&punumber%3D6200016%26sortType%3Dasc_p_Sequence%26filter%3DAND%28p_IS_Number%3A6200080%29%26pageNumber%3D4
+
+
+An Empirical Study of Pre-release Software Faults in an Industrial Product Line
+
+http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6200114&punumber%3D6200016%26sortType%3Dasc_p_Sequence%26filter%3DAND%28p_IS_Number%3A6200080%29%26pageNumber%3D3
+
+
+Open Research Challenges of Localizing Faults in Programs Using Constraints
+Automated debugging, i.e., localizing faults in programs automatically using a failing test case and the source code, is still and open research topic despite the fact that there have been 
+many different techniques already published. In this paper we focus on constraints 
+for debugging. Constraints cannot only be effectively used for verification and testing, 
+but also provide a foundation for automated fault localization. We briefly discuss the basic 
+idea of constraint based debugging and outline some of the most important challenges.

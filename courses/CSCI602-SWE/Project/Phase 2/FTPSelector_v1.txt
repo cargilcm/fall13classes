@@ -1,0 +1,71 @@
+package ftp.src;
+
+import java.io.InputStream;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Scanner;
+
+import org.apache.commons.net.ftp.FTPClient;
+
+public class FTPSelector {
+
+	public FTPSelector(){
+		try {
+			URL url;
+			// ref: http://commons.apache.org/proper/commons-net/apidocs/org/apache/commons/net/ftp/FTPClient.html
+			FTPClient client = new FTPClient();
+			
+			String line;
+			String website = 
+					"ftp://charlestonwebapps.com";
+//					"ftp://christo6:LenovoG500$@charlestonwebapps.com/public_ftp/incoming/";
+			url = new URL(website);
+			Authenticator.setDefault(new MyAuthenticator());
+	        /*
+			URLConnection urlConnection = url.openConnection();
+	        
+			if(urlConnection!=null){
+				urlConnection.setDoOutput(true);
+				InputStream in = urlConnection.getInputStream();
+				Scanner s = new Scanner(in);
+				while(s.hasNextLine() && (line=s.nextLine())!=null){
+					System.out.println(line);
+		  		 }
+				in.close();
+				
+				//Scanner s = new Scanner(in);
+				
+	        	urlConnection.setDoOutput(true);
+				//OutputStream out = urlConnection.getOutputStream();
+				//urlConnection.get
+				String hello = "hello";
+				byte[] bytes = {0,1,2,3};
+//				FileWriter writer = new FileWriter(f);
+//				writer.write(hello);
+//				writer.close();
+//				out.write(bytes);
+//				out.close();
+//			*/
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void main(String[] args) throws Exception {
+		new FTPSelector();
+	}
+
+	// this code comes from http://docs.oracle.com/javase/6/docs/technotes/guides/net/http-auth.html
+	// after trying URLConnection.addProperty("auth basic username password) before uc.connect() did not work..
+	
+	public class MyAuthenticator extends Authenticator{
+		String user = "introswe@charlestonwebapps.com";
+		String userPassword = "fall2013";
+		protected PasswordAuthentication getPasswordAuthentication(){
+			//System.err.println("Feeding username and password for " + getRequestingScheme());
+            return (new PasswordAuthentication(user, userPassword.toCharArray()));
+		}			
+	}
+}

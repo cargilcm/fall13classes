@@ -1,0 +1,70 @@
+main->finishStartUp() := (#3520)main.openFiles()  
+	
+main->makeServerScript(..,..,String path) at line 2936 appends "EditServer.handleClient()" -> 
+
+main.initMisc()_#2981_org.gjt.sp.jedit.PluginJAR
+---------
+Loads and unloads plugins.
+---------
+JAR file contents
+When loading a plugin, jEdit looks for the following resources: 
+A file named actions.xml defining plugin actions. Only one such file per plugin is allowed. See ActionSet for syntax. 
+A file named browser.actions.xml defining file system browser actions. Only one such file per plugin is allowed. See ActionSet for syntax. 
+A file named dockables.xml defining dockable windows. Only one such file per plugin is allowed. See org.gjt.sp.jedit.gui.DockableWindowManager for syntax. 
+A file named services.xml defining additional services offered by the plugin, such as virtual file systems. Only one such file per plugin is allowed. See org.gjt.sp.jedit.ServiceManager for syntax. 
+File with extension .props containing name/value pairs separated by an equals sign. A plugin can supply any number of property files. Property files are used to define plugin men items, plugin option panes, as well as arbitriary settings and strings used by the plugin. See EditPlugin for information about properties used by jEdit. See java.util.Properties for property file syntax. 
+For a plugin to actually do something once it is resident in memory, it must contain a class whose name ends with Plugin. This class, known as the plugin core class must extend EditPlugin and define a few required properties, otherwise it is ignored. 
+
+
+
+File (Java Platform SE 6)
+http://docs.oracle.com/javase/6/docs/api/java/io/File.html
+
+Oops! Google Chrome could not connect to 127.0.0.1:25312
+http://127.0.0.1:25312/doc/manual/R-intro.html#Invoking-R-from-the-command-line
+
+ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4670284
+http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4670284
+
+www.leshatton.org/Documents/Hatton_IFIP2011_19Oct2011.pdf
+http://www.leshatton.org/Documents/Hatton_IFIP2011_19Oct2011.pdf
+
+statistical mechanics - Google Search
+https://www.google.com/search?q=statistical+mechanics&oq=statistical+mechanics&aqs=chrome..69i57.4713j0j4&sourceid=chrome&espv=210&es_sm=93&ie=UTF-8
+
+Statistical mechanics - Wikipedia, the free encyclopedia
+http://en.wikipedia.org/wiki/Statistical_mechanics
+
+Information theory - Wikipedia, the free encyclopedia
+http://en.wikipedia.org/wiki/Information_theory#Coding_theory
+
+Shannon–Hartley theorem - Wikipedia, the free encyclopedia
+http://en.wikipedia.org/wiki/Shannon%E2%80%93Hartley_law
+
+www.spms.ntu.edu.sg/PAP/courseware/statmech.pdf
+http://www.spms.ntu.edu.sg/PAP/courseware/statmech.pdf
+
+Glossary of graph theory - Wikipedia, the free encyclopedia
+http://en.wikipedia.org/wiki/Glossary_of_graph_theory#Subgraphs
+
+chriscargile.com/webdav/school/Phase 2 Instructions-CRs.pdf
+http://chriscargile.com/webdav/school/Phase%202%20Instructions-CRs.pdf
+
+www.math.uni-hamburg.de/home/diestel/books/graph.theory/preview/Ch1.pdf
+http://www.math.uni-hamburg.de/home/diestel/books/graph.theory/preview/Ch1.pdf
+
+Thermodynamic equations - Wikipedia, the free encyclopedia
+http://en.wikipedia.org/wiki/Thermodynamic_equations
+
+Adjacency matrix - Wikipedia, the free encyclopedia
+http://en.wikipedia.org/wiki/Adjacency_matrix
+
+Control Flow Graph Factory | Eclipse Plugins, Bundles and Products - Eclipse Marketplace
+http://marketplace.eclipse.org/content/control-flow-graph-factory#.UnbM2fk_vBM
+
+Control Flow Graph Factory - Dr. Garbage
+http://www.drgarbage.com/control-flow-graph-factory.html
+
+projects.cwi.nl/InfoVisu/GraphXML/GraphXML.pdf
+http://projects.cwi.nl/InfoVisu/GraphXML/GraphXML.pdf
+

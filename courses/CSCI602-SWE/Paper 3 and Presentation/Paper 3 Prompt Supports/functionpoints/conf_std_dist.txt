@@ -1,0 +1,4 @@
+http://sunilsavanur.wordpress.com/2013/01/01/use-software-reliability-growth-model-srgm-for-residual-defects-estimation/
+
+Practical System Reliability
+http://books.google.com/books?id=eoi7zVrtb_AC&pg=PA115&lpg=PA115&dq=software+defect+origin+eric+bauer&source=bl&ots=xl7oDyuGrL&sig=ttjOhMBRHmqXObuPkjMKzD0Z4Og&hl=en&sa=X&ei=9XSkUr_BF6qysQTHloHwCA&ved=0CCwQ6AEwAA#v=onepage&q=software%20defect%20origin%20eric%20bauer&f=false
